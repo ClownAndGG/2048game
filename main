@@ -1,0 +1,52 @@
+#include "qq.h"
+#include <iostream>
+#include<ctime>
+#include <cstdlib>
+#include<Windows.h>
+#include<iomanip>
+
+using namespace std;
+
+
+int main()
+{
+	cout.setf(ios::boolalpha);
+	setlocale(LC_ALL, "");
+	srand(time(0));
+	char commandToDir[ 128];
+	commandToDir  ['s'] = 0;
+	commandToDir [ 'd' ] = 1;
+	commandToDir [ 'w' ] = 2;
+	commandToDir [ 'a' ] = 3;
+	game();
+	while (true) {
+		printUI();
+		char command;
+		cin >> command;
+		if (command == 'n')
+			game();
+		else if (command == 'q')
+			exit(0);
+		else {
+			int currentDirecrion = commandToDir[command];
+		
+			applyMove( currentDirecrion );
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+	system("pause");
+}
+
+
+
+
